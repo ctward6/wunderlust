@@ -118,8 +118,14 @@ img {
 }
 
 @media (min-width: 48rem) {
+    #about {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
     #about div {
         grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        padding: 1.75rem 0;
     }
 }
 
@@ -158,14 +164,27 @@ body {
 }
 
 :is(#plan, #testimonials, #about, #contact) {
-    /* Everything but #img-grid, menu, and footer. h1, h2, and p in header and #intro + the entirety of #plan, #testimonials, #about, and #contact */
-    padding: var(--section-padding-top) 2.375rem 0 2.375rem; /* 38px */
+    padding-top: var(--section-padding-top);
+}
+
+@media (max-width: 767px) {
+    :is(#plan, #testimonials, #about, #contact) {
+        /* Everything but #img-grid, menu, and footer. h1, h2, and p in header and #intro + the entirety of #plan, #testimonials, #about, and #contact */
+        padding: var(--section-padding-top) 2.375rem 0 2.375rem; /* 38px */
+    }
 }
 
 /* --------- Contact --------- */
 
 #contact {
     padding-bottom: 1.125rem; /* 18px, half of var(--section-padding-top) */
+}
+
+@media (min-width: 48rem) {
+    #contact {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
 }
 
 #contact :is(span, label, legend) {
@@ -214,6 +233,13 @@ fieldset {
     flex-direction: column;
 }
 
+@media (min-width: 48rem) {
+    fieldset {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
@@ -258,13 +284,15 @@ input[type="radio"]:checked::before {
     align-items: center;
 }
 
-[for^="pref"] {
+#contact [for^="pref"] {
     /* display: grid; */
     /* grid-template-columns: auto 1fr; */
     /* align-items: center; */
     display: flex;
     align-items: center;
     gap: 1.125rem; /* 18px */
+    font-variation-settings: "wght" 400;
+    text-transform: none;
 }
 
 [for^="pref"]:not([for="prefEmail"]) {
@@ -404,6 +432,13 @@ select::-ms-expand {
     font-variation-settings: "wght" 600;
 }
 
+@media (min-width: 48rem) {
+    [type="submit"] {
+        width: 50%;
+        align-self: flex-end;
+    }
+}
+
 /* --------- End of Contact --------- */
 
 /* --------- footer --------- */
@@ -419,6 +454,15 @@ footer {
     padding: .75rem 0;
 }
 
+@media (min-width: 48rem) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem 5rem;
+        margin-top: 2rem;
+    }
+}
+
 footer a {
     text-decoration: none;
     color: var(--dark-gray);
@@ -426,6 +470,16 @@ footer a {
 
 footer a:nth-child(2) {
     margin-top: 0.75rem;
+}
+
+@media (min-width: 48rem) {
+    footer a {
+        font-size: 16px;
+
+    }
+    footer a:nth-child(2) {
+        margin-top: 0;
+    }
 }
 
 
