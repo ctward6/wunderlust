@@ -115,7 +115,12 @@ img {
     padding: 2.25rem 1.5rem 1.75rem 1.5rem;
     gap: 1.25rem; /* 20px */
     margin: 0 auto;
+}
 
+@media (min-width: 48rem) {
+    #about div {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 #about section {
@@ -140,19 +145,21 @@ img {
     padding-top: 0.5rem;
 }
 
-/* Body elements - general/base padding */
+/* Body - line-height, body elements - general/base padding */
+
+body {
+    line-height: 2rem;
+}
+
+@media (min-width: 48rem) {
+    body {
+        line-height: 1.625rem;
+    }
+}
 
 :is(#plan, #testimonials, #about, #contact) {
     /* Everything but #img-grid, menu, and footer. h1, h2, and p in header and #intro + the entirety of #plan, #testimonials, #about, and #contact */
     padding: var(--section-padding-top) 2.375rem 0 2.375rem; /* 38px */
-}
-
-:is(header, #intro) :is(h1, h2, p) {
-    padding: 0 2.375rem;
-}
-
-#intro h2 {
-    padding-bottom: 0.5rem;
 }
 
 /* --------- Contact --------- */
@@ -438,18 +445,44 @@ header {
 
 @media (min-width: 48rem) {
     header {
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 2.175fr;
         grid-template-areas:
         "logo heading"
         "logo p"
         "menu menu";
-        padding-bottom: 3rem;
+        padding: 3rem 0 3rem 0;
+        row-gap: 1.25rem;
     }
 }
 
-header a {
+:where(header) :is(h1, h2, p) {
+    padding: 0 2.375rem;
+}
+
+@media (min-width: 48rem) {
+    :where(header) :is(h1, h2, p) {
+        padding: 0;
+    }
+}
+
+    /* Header and menu - logo */
+
+#logo {
+    max-width: 160px;
     grid-area: logo;
 }
+
+@media (min-width: 48rem) {
+    #logo {
+        max-width: 100%;
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+    }
+}
+
+    /* Header and menu - nav, toggle, and ul */
 
 @media (max-width: 767px) {
     header nav {
@@ -468,10 +501,6 @@ header a {
     header nav {
         grid-area: menu;
     }
-}
-
-#logo {
-    max-width: 160px;
 }
 
 @media (max-width: 767px) {
@@ -548,6 +577,8 @@ header a {
         align-content: center;
         padding: 0 5rem; /* 80px */
         gap: 1rem;
+        font-size: 0.9375rem; /* 15px */
+        /* margin-top: 0.25rem; */
     }
 
     nav li {
@@ -562,21 +593,6 @@ header a {
     nav .active {
         background-color: var(--yellow);
     }
-}
-
-header p {
-    grid-area: p;
-    margin-top: 0.25rem; /* 4px */
-}
-
-/* @media (min-width: 768px) {
-    header p {
-        grid-area: p;
-    }
-} */
-
-header h1 {
-    grid-area: heading;
 }
 
 #menu-toggle :is(label, li) {
@@ -602,6 +618,23 @@ header h1 {
     }
 }
 
+    /* End of nav, toggle, and ul */
+
+header p {
+    grid-area: p;
+    margin-top: 0.25rem; /* 4px */
+}
+
+@media (min-width: 48rem) {
+    header p {
+        padding-right: 4rem;
+    }
+}
+
+header h1 {
+    grid-area: heading;
+}
+
 /* --------- End of header and menu --------- */
 
 /* --------- Image Grid --------- */
@@ -613,6 +646,19 @@ header h1 {
     gap: 1.25rem; /* 20px */
 }
 
+@media (min-width: 48rem) {
+    #img-grid {
+        grid-template-areas:
+        "img1 img2"
+        "img3 img3";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #img-grid picture {
+        grid-area: img3;
+    }
+}
+
 #img-grid img {
     width: 100%;
 }
@@ -621,6 +667,27 @@ header h1 {
 
 #intro h2 {
     margin-top: 3rem;
+    padding-bottom: 0.5rem;
+}
+
+:where(#intro) :is(h1, h2, p) {
+    padding: 0 2.375rem;
+}
+
+@media (min-width: 48rem) {
+    :where(#intro) :is(h1, h2, p) {
+        padding: 0;
+    }
+
+    #intro h2 {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 48rem) {
+    #intro {
+        padding: 0 5rem; /* 80px */
+    }
 }
 
 /* --------- Plan --------- */
@@ -633,10 +700,23 @@ header h1 {
     padding-bottom: 1.25rem;
 }
 
+@media (min-width: 48rem) {
+    #plan {
+        padding: var(--section-padding-top) 5rem 1.25rem 5rem; /* 80px */
+    }
+}
+
 #plan div {
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 1.125rem; /* 18px */
+}
+
+@media (min-width: 48rem) {
+    #plan div {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
 }
 
 #plan section {
@@ -678,9 +758,16 @@ header h1 {
 /* --------- Testimonials --------- */
 
 #testimonials {
-    /* padding-top: var(--section-padding-top); */
+    /* padding-top: var(--section-padding-top); - this rule is applied in the Body section of this stylesheet */
     padding-bottom: .625rem;
     margin-top: .675rem;
+}
+
+@media (min-width: 48rem) {
+    #testimonials {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
 }
 
 #testimonials div {
@@ -692,14 +779,44 @@ header h1 {
     text-align: center;
 }
 
+@media (min-width: 48rem) {
+    #testimonials div {
+        /* grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto; */
+        display: flex;
+        flex-flow: row wrap;
+        gap: 2rem; /* 32px */
+        max-width: 100%;
+    }
+}
+
 #testimonials section {
     display: grid;
     justify-content: center;
     justify-items: center;
 }
 
+@media (min-width: 48rem) {
+    #testimonials section {
+        display: flex;
+        flex-direction: column;
+        max-width: calc(50% - 16px);
+        /* 50% width because there are two sections per row, and subtract 16px because that's half the width of the gap (32px) in between two adjacent items in a row. So, when subtracted from two sections on a row, you're subtracting 32px total, allowing two items to fit on one row before they wrap. */
+        justify-content: flex-start;
+        align-items: center;
+        /* grid-template-rows: subgrid;
+        grid-row: span 4; */
+    }
+}
+
 #testimonials img {
     margin: .75rem 0;
+}
+
+@media (min-width: 48rem) {
+    #testimonials img {
+        max-width: 200px;
+    }
 }
 
     /* Testimonials  - Typography */
@@ -708,6 +825,12 @@ header h1 {
     font-size: 1.875rem; /* 30px */
     font-variation-settings: 'wght' 600;
     text-transform: uppercase;
+}
+
+@media (min-width: 48rem) {
+    #testimonials h4 {
+        line-height: 1.25em;
+    }
 }
 
 #testimonials :is(p, q) {
@@ -736,10 +859,6 @@ q::after {
 /* --------- End of Testimonials --------- */
 
 /* --------- Typography - general/multiple sections --------- */
-
-body {
-    line-height: 2rem;
-}
 
 h1 {
     font-size: 3.125rem; /* 50px */
