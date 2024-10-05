@@ -1,0 +1,1234 @@
+/* Connor Ward */
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time1, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* End of CSS reset */
+
+/* Additional resets */
+
+button {
+    border: none;
+}
+
+/* Allows modals to be up to 100% of viewport width and height in Chrome when using the Box Model Fix */
+
+dialog:modal {
+    max-width: 100vh;
+    max-height: 100vh;
+}
+
+/* Box Model Fix / Border Box Fix */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Responsive images */
+
+img {
+    max-width: 100%;
+}
+
+/* --------- End of boilerplate CSS --------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat:wght@100..900&display=swap');
+
+/* Root variables */
+
+:root {
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --dark-gray: #222222;
+    --light-gray: #EAEAEA;
+    --white: #ffffff;
+    --black: #000000;
+    --molle: "Molle", cursive, system-ui;
+    --montserrat: "Montserrat", sans-serif, system-ui;
+    --time1: 0.3s;
+    --section-padding-top: 2.25rem; /* 36px */
+    --section-pd-top-bottom-1920: 6rem; /* make it 6rem - was 4.375rem */
+}
+
+/* About */
+
+#about {
+    background-color: var(--blue);
+    /* padding-top: var(--section-padding-top); */
+}
+
+#about div {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 2.25rem 1.5rem 1.75rem 1.5rem;
+    gap: 1.25rem; /* 20px */
+    margin: 0 auto;
+}
+
+#about section {
+    /* display: grid;
+    justify-content: center;
+    justify-items: center; */
+    /* align-content: baseline; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 48rem) {
+    #about {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    #about div {
+        grid-template-columns: repeat(4, minmax(12.5%, 144px));;
+        grid-template-rows: 1fr;
+        padding: 1.75rem 0;
+        gap: .625rem;
+    }
+    #about section {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 120rem) {
+    #about {
+        padding: var(--section-pd-top-bottom-1920) 8.75rem;
+    }
+    #about div {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+    }
+}
+
+#about img {
+    height: 100px;
+}
+
+@media (min-width: 120rem) {
+    #about img {
+        height: 150px;
+    }
+}
+
+#about h4 {
+    font-size: 1.25rem; /* 20px */
+    text-transform: uppercase;
+    font-variation-settings: 'wght' 600;
+    padding-top: 0.5rem;
+}
+
+/* Body - line-height, body elements - general/base padding */
+
+body {
+    line-height: 2rem;
+}
+
+@media (min-width: 48rem) {
+    body {
+        line-height: 1.625rem;
+    }
+}
+
+:is(#plan, #testimonials, #about, #contact) {
+    padding-top: var(--section-padding-top);
+}
+
+@media (max-width: 767px) {
+    :is(#plan, #testimonials, #about, #contact) {
+        /* Everything but #img-grid, menu, and footer. h1, h2, and p in header and #intro + the entirety of #plan, #testimonials, #about, and #contact */
+        padding: var(--section-padding-top) 2.375rem 0 2.375rem; /* 38px */
+    }
+}
+
+@media (min-width: 120rem) {
+    :is(#plan, #testimonials, #about, #contact) {
+        padding: var(--section-pd-top-bottom-1920) 8.75rem;
+    }
+}
+
+/* --------- Contact --------- */
+
+#contact {
+    padding-bottom: 1.125rem; /* 18px, half of var(--section-padding-top) */
+}
+
+@media (min-width: 48rem) {
+    #contact {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
+@media (min-width: 120rem) {
+    #contact {
+        padding: var(--section-pd-top-bottom-1920) 8.75rem;
+    }
+}
+
+
+#contact :is(span, label, legend) {
+    font-family: var(--montserrat);
+    font-size: 1.25rem;
+}
+
+.form-required {
+    margin-left: .5rem;
+}
+
+#contact label, #contact legend {
+    font-variation-settings: 'wght' 600;
+    text-transform: uppercase;
+}
+
+#names {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type*="e"] { /* all inputs except radio */
+    height: 4.6875rem; /* 75px */
+    border: 3px solid var(--purple);
+}
+
+[for="fName"] {
+    margin-top: .5rem;
+}
+
+[for="lName"], legend {
+    margin-top: 1.125rem; /* 18px */
+}
+
+#nums {
+    display: flex;
+    flex-direction: column;
+}
+
+#nums > label {
+    margin-top: 1.125rem; /* 18px */
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 48rem) {
+    fieldset {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Margin isn't removed via appearance: none; */
+    margin: 0;
+    font: inherit;
+    color: var(--purple);
+    width: 75px;
+    height: 75px;
+    border: 0.15em solid var(--purple);
+    border-radius: 50%;
+    padding: 20px;
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]:focus {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+
+input[type="radio"]::before {
+    content: "";
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.2s transform ease-out;
+    /* box-shadow: inset 1em 1em var(--purple); */
+    background-color: var(--purple);
+  }
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+.radio-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact [for^="pref"] {
+    /* display: grid; */
+    /* grid-template-columns: auto 1fr; */
+    /* align-items: center; */
+    display: flex;
+    align-items: center;
+    gap: 1.125rem; /* 18px */
+    font-variation-settings: "wght" 400;
+    text-transform: none;
+}
+
+[for^="pref"]:not([for="prefEmail"]) {
+    margin-top: 1.125rem; /* 18px */
+}
+
+[for="prefEmail"] {
+    margin-top: 0.5rem; /* 8px */
+}
+
+#contact .required {
+    color: var(--purple);
+    font-size: 1.875rem; /* 30px */
+    margin-left: 4px;
+    position: relative;
+    top: 0.375rem; /* 6 px */
+    font-variation-settings: 'wght' 400;
+}
+
+::placeholder {
+    opacity: 1;
+}
+
+:placeholder-shown {
+    padding-left: 0.875rem; /* 14px */
+    font-size: 1.25rem; /* 20 px */
+    font-family: var(--montserrat);
+    font-variation-settings: 'wght' 300;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    padding-left: 0.875rem;
+    font-size: 1.25rem; /* 20 px */
+    font-family: var(--montserrat);
+    font-variation-settings: 'wght' 300;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    padding-left: 0.875rem;
+    font-size: 1.25rem; /* 20 px */
+    font-family: var(--montserrat);
+    font-variation-settings: 'wght' 300;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+    padding-left: 0.875rem;
+    font-size: 1.25rem; /* 20 px */
+    font-family: var(--montserrat);
+    font-variation-settings: 'wght' 300;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    padding-left: 0.875rem;
+    font-size: 1.25rem; /* 20 px */
+    font-family: var(--montserrat);
+    font-variation-settings: 'wght' 300;
+}
+
+#selects {
+    display: flex;
+    flex-direction: column;
+}
+
+#selects label {
+    margin-top: 1.125rem; /* 18px */
+}
+
+select {
+    /* A reset of styles, including removing the default dropdown arrow */
+    appearance: none;
+    /* Additional resets for further consistency */
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: var(--montserrat);
+    font-variation-settings: 'wght' 300;
+    font-size: 1.25rem; /* 20 px */
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.custom-select:focus-within {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+.custom-select {
+    width: 100%;
+    height: 75px;
+    border: 3px solid var(--purple);
+    padding-left: 0.875rem;
+    font-size: 1.25rem; /* 20 px */
+    font-family: var(--montserrat);
+    font-variation-settings: 'wght' 200;
+    cursor: pointer;
+    background-color: var(--white);
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    align-content: center;
+    position: relative;
+}
+
+.custom-select::after {
+    content: "";
+    clip-path: polygon(100% 0, 50% 100%, 0 0, 5% 0, 50% 90%, 95% 0);
+    background-color: var(--purple);
+    width: 40px;
+    height: 20px;
+    justify-self: end;
+    position: absolute;
+    right: 0.875rem;
+    /* width: 100%; */
+}
+
+.custom-select, .custom-select::after {
+    grid-area: select;
+}
+
+[type="submit"] {
+    margin-top: 1.625rem; /* 18px */
+    height: 75px;
+    border-radius: 0;
+    background-color: var(--purple);
+    color: var(--white);
+    text-transform: uppercase;
+    font-family: var(--montserrat);
+    font-size: 1.25rem; /* 20px */
+    font-variation-settings: "wght" 600;
+}
+
+@media (min-width: 48rem) {
+    [type="submit"] {
+        width: 50%;
+        align-self: flex-end;
+    }
+}
+
+@media (min-width: 48rem) {
+    form {
+        width: max(calc(48rem - 10rem), 50%);
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 120rem) {
+    form {
+        width: initial;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+        /* display: flex; */
+    }
+    [for="fName"], [for="lName"], legend {
+        margin-top: 0;
+    }
+    #contact h3 {
+        margin-bottom: 1rem;
+    }
+    #contact [for^="pref"] {
+        margin-top: 0;
+    }
+    #label {
+        margin-top: 1rem;
+    }
+    .custom-select {
+        margin-top: -0.0625rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .radio-input {
+        margin-bottom: -1rem;
+    }
+    #selects label {
+        margin-top: 0;
+    }
+    
+    [for="destination"] {
+        margin-top: -0.125rem;
+    }
+    #fName {
+        margin-bottom: 2px;
+    }
+
+    [type="submit"] {
+        align-self: flex-end;
+        margin: auto 0 0 0;
+    }
+
+    [for="lName"], #selects label[for="travelTime"] {
+        margin-top: 1.25rem;
+    }
+
+    [for="prefEmail"]{
+        margin-bottom: 1.25rem;
+    }
+}
+
+/* --------- End of Contact --------- */
+
+/* --------- footer --------- */
+
+footer {
+    background-color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-gray);
+    font-family: var(--montserrat);
+    padding: .75rem 0;
+}
+
+@media (min-width: 48rem) {
+    footer {
+        flex-direction: row;
+        justify-content: center;
+        padding: 2rem 5rem;
+        margin-top: 2rem;
+        gap: 1.4rem;
+    }
+}
+
+@media (min-width: 120rem) {
+    footer {
+        justify-content: flex-end;
+        gap: 10rem;
+        padding-left: 8.75rem;
+        padding-right: 8.75rem;
+    }   
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+footer a:nth-child(2) {
+    margin-top: 0.75rem;
+}
+
+@media (min-width: 48rem) {
+    footer a {
+        font-size: 16px;
+
+    }
+    footer a:nth-child(2) {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 120rem) {
+    footer p {
+        margin-right: auto;
+    }
+}
+
+/* --------- Header and menu --------- */
+
+header {
+    padding-top: .75rem;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "logo menu"
+    "heading heading"
+    "p p";
+    background: linear-gradient(to bottom, var(--teal), var(--white));
+}
+
+@media (min-width: 48rem) {
+    header {
+        grid-template-columns: 1fr 2.175fr;
+        grid-template-areas:
+        "logo heading"
+        "logo p"
+        "menu menu";
+        padding: 3rem 0 3rem 0;
+        row-gap: 1.25rem;
+    }
+}
+
+@media (min-width: 120rem) {
+    header {
+        grid-template-columns: auto 1fr 780px;
+        grid-template-rows: auto auto 2.125rem; /* p font-size + margin-top + line-height */
+        grid-template-areas:
+        ".    .       menu"
+        "logo heading ."
+        "logo p       .";
+        padding: 0 0 2rem 0;
+        gap: 0;
+        align-items: flex-end;
+        /* align-content: baseline; */
+    }
+}
+
+:where(header) :is(h1, h2, p) {
+    padding: 0 2.375rem;
+}
+
+@media (min-width: 48rem) {
+    :where(header) :is(h1, h2, p) {
+        padding: 0;
+    }
+}
+
+    /* Header and menu - logo */
+
+#logo {
+    max-width: 160px;
+    grid-area: logo;
+}
+
+@media (min-width: 48rem) {
+    #logo {
+        max-width: 100%;
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+    }
+}
+
+@media (min-width: 120rem) {
+    #logo {
+        transform: scale(1.25);
+        transform-origin: bottom;
+    }
+}
+
+    /* Header and menu - nav, toggle, and ul */
+
+@media (max-width: 767px) {
+    header nav {
+        grid-area: menu;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--yellow);
+        height: 50px;
+        margin: auto 0;    
+    }
+}
+
+@media (min-width: 48rem) {
+    header nav {
+        grid-area: menu;
+    }
+}
+
+@media (max-width: 767px) {
+
+    nav:has(#toggle:checked) {
+        position: absolute;
+        display: block;
+        z-index: 1;
+        /* Either do these two properties or margin: 0 auto;
+        right: 50%; */
+        /* transform: translateX(50%); */
+        margin: 0 auto;
+        top: 0%;
+        width: 100%;
+    }
+
+    nav:has(#toggle:checked) label {
+        display: block;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--dark-gray);
+        color: var(--white);
+    }
+
+    nav:has(#toggle:checked):before {
+        content: '';
+        background-color: var(--white);
+        display: block;
+        height: 27px;
+        width: 100%;
+    }
+
+    nav:has(#toggle:checked) li {
+        background-color: var(--teal);
+        border: 1px solid var(--dark-gray);
+        border-top: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav:has(#toggle:checked) li a {
+        color: var(--black);
+        text-decoration: none;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 48rem) {
+    #toggle {
+        display: none;
+    }
+
+    nav label {
+        display: none;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--black);
+    }
+
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+        align-content: center;
+        padding: 0 5rem; /* 80px */
+        gap: 1rem;
+        font-size: 0.9375rem; /* 15px */
+        /* margin-top: 0.25rem; */
+    }
+
+    nav li {
+        /* width: 140px; */
+        padding: .75rem;
+        background-color: var(--white);
+        display: grid;
+        justify-content: center;
+        align-content: center;
+    }
+
+    nav .active {
+        background-color: var(--yellow);
+    }
+}
+
+@media (min-width: 120rem) {
+    nav li {
+        padding: .5rem;
+    }
+    nav ul {
+        justify-content: flex-end;
+        align-content: flex-end;
+        /* padding: 0 0 0 10rem; */
+        padding: 0;
+        gap: 1rem;
+    }
+}
+
+#menu-toggle :is(label, li) {
+    font-variation-settings: 'wght' 600;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+
+    #toggle {
+        display: none;
+    }
+
+    #toggle ~ ul {
+        max-height: 0;
+        overflow: hidden;
+        transition: none;
+    }
+
+    #toggle:checked ~ ul {
+        max-height: 450px;    
+        transition: max-height var(--time1);
+    }
+}
+
+    /* End of nav, toggle, and ul */
+
+header p {
+    grid-area: p;
+    margin-top: 0.25rem; /* 4px */
+}
+
+@media (min-width: 48rem) {
+    header p {
+        padding-right: 4rem;
+    }
+}
+
+header h1 {
+    grid-area: heading;
+}
+
+@media (min-width: 120rem) {
+    header h1 {
+        padding-bottom: 0.75rem;
+    }
+}
+
+/* --------- End of header and menu --------- */
+
+/* --------- Image Grid --------- */
+
+#img-grid {
+    margin-top: .625rem; /* 10px */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem; /* 20px */
+}
+
+@media (min-width: 48rem) {
+    #img-grid {
+        grid-template-areas:
+        "img1 img2"
+        "img3 img3";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #img-grid picture {
+        grid-area: img3;
+    }
+}
+
+@media (min-width: 120rem) {
+    #img-grid {
+        grid-template-rows: auto auto;
+        grid-area: img-grid;
+        margin-top: 0;
+        margin-bottom: 4.375rem;
+        padding-left: 2rem;
+    }
+    /* #img-grid > img {
+        height: 17.9375rem;
+    }
+    #img-grid > picture {
+        height: 18.75rem;
+    } */
+}
+
+#img-grid img {
+    width: 100%;
+}
+
+/* --------- Intro --------- */
+
+#intro h2 {
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+}
+
+:where(#intro) :is(h1, h2, p) {
+    padding: 0 2.375rem;
+}
+
+@media (min-width: 48rem) {
+    :where(#intro) :is(h1, h2, p) {
+        padding: 0;
+    }
+
+    #intro h2 {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 48rem) {
+    #intro {
+        padding: 0 5rem; 
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 120rem) {
+    #intro {
+        display: grid;
+        margin: 0 auto;
+        column-gap: 0;
+        justify-content: center;
+        /* grid-template-columns: 658px 950px; */
+        grid-template-columns: 2fr 3fr;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+        "heading img-grid"
+        "p       img-grid"
+        ".       img-grid";
+        align-items: center;
+        padding: 4.375rem 8.75rem; /* there needs to be 8.75rem of padding on left and right side (140px) */
+    }
+
+    #intro h2 {
+        grid-area: heading;
+        /* margin-bottom: 0.5rem; */
+        padding-top: 1.5625rem;
+        transform: translateY(-0.5rem);
+        /* transform: translateY(-50%); */ 
+    }
+
+    #intro p {
+        grid-area: p;
+        /* transform: translateY(-50%); */
+    }   
+}
+
+/* --------- Plan --------- */
+
+#plan {
+    margin-top: 1.25rem; /* 20px */
+    background-color: var(--yellow);
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    padding-bottom: 1.25rem;
+}
+
+@media (min-width: 48rem) {
+    #plan {
+        padding: var(--section-padding-top) 5rem 1.25rem 5rem; /* 80px */
+    }
+}
+
+@media (min-width: 120rem) {
+    #plan {
+        padding: var(--section-pd-top-bottom-1920) 8.75rem;
+    }
+}
+
+#plan div {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 1.125rem; /* 18px */
+}
+
+@media (min-width: 48rem) {
+    #plan div {
+        grid-template-columns: repeat(2, minmax(25%, 296px));
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 120rem) {
+    #plan div {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+#plan section {
+    background-color: var(--teal);
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    padding: 1.5rem 0; /* 24px */
+    margin: .375rem 0; /* 6px */
+    height: 302px;
+    border-radius: 12px;
+    border: 4px solid var(--white);
+}
+
+@media (min-width: 120rem) {
+    #plan section {
+        height: 336px;
+        width: 398px;
+    }
+}
+
+#plan h4 {
+    font-variation-settings: 'wght' 600;
+    text-transform: uppercase;
+    font-size: 1.625rem; /* 26px */
+}
+
+#plan a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#plan section:nth-child(odd) img {
+    max-width: 90%;
+}
+
+#plan section:nth-child(even) img {
+    max-width: 85%;
+}
+
+/* --------- End of Plan --------- */
+
+/* --------- Testimonials --------- */
+
+#testimonials {
+    /* padding-top: var(--section-padding-top); - this rule is applied in the Body section of this stylesheet */
+    padding-bottom: .625rem;
+    margin-top: .675rem;
+}
+
+@media (min-width: 48rem) {
+    #testimonials {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
+@media (min-width: 120rem) {
+    #testimonials {
+        padding: var(--section-pd-top-bottom-1920) 8.75rem;
+    }
+
+}
+
+#testimonials div {
+    /* margin-top: .5rem; */
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: max(290px, 80%);
+    margin: 1rem auto;
+    text-align: center;
+}
+
+@media (min-width: 48rem) {
+    #testimonials div {
+        grid-template-columns: repeat(2, minmax(25%, 293px));
+        grid-template-rows: auto auto;
+        justify-content: center;
+        justify-items: center;
+        gap: 2rem; /* 32px */
+        max-width: 100%;
+
+    }
+}
+
+@media (min-width: 120rem) {
+    #testimonials div {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.6rem;
+    }
+}
+
+#testimonials section {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+
+@media (min-width: 48rem) {
+    #testimonials section {
+        display: flex;
+        flex-direction: column;
+        /* max-width: calc(50% - 16px); */
+        /* 50% width because there are two sections per row, and subtract 16px because that's half the width of the gap (32px) in between two adjacent items in a row. So, when subtracted from two sections on a row, you're subtracting 32px total, allowing two items to fit on one row before they wrap. */
+        justify-content: flex-start;
+        align-items: center;
+        /* grid-template-rows: subgrid;
+        grid-row: span 4; */
+    }
+}
+
+@media (min-width: 120rem) {
+    #testimonials section {
+        max-width: 100%;
+    }
+}
+
+#testimonials img {
+    margin: .75rem 0;
+}
+
+@media (min-width: 48rem) {
+    #testimonials img {
+        max-width: 200px;
+    }
+}
+
+    /* Testimonials  - Typography */
+
+#testimonials h4 {
+    font-size: 1.875rem; /* 30px */
+    font-variation-settings: 'wght' 600;
+    text-transform: uppercase;
+}
+
+@media (min-width: 48rem) {
+    #testimonials h4 {
+        line-height: 1.25em;
+    }
+}
+
+#testimonials :is(p, q) {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.625rem; /* 26px */
+}
+
+#testimonials q {
+    font-style: italic;
+}
+
+q {
+    quotes: "“" "”" "‘" "’";
+}
+
+q::before {
+    content: open-quote;
+}
+
+q::after {
+    content: close-quote;
+}
+
+    /* End of Testimonials - Typography */
+
+/* --------- End of Testimonials --------- */
+
+/* --------- Typography - general/multiple sections --------- */
+
+h1 {
+    font-size: 3.125rem; /* 50px */
+    margin-top: 1.5rem;
+}
+
+h2, h3 {
+    font-size: 2.5rem; /* 40px */
+}
+
+@media (min-width: 120rem) {
+    h1 {
+        font-size: 4.6875rem;
+    }
+    h2 {
+        font-size: 2.8125rem;
+    }
+}
+
+:is(header, #testimonials, #about) p {
+    font-size: 1.25rem; /* 20px */
+}
+
+:is(#intro, footer) p {
+    font-size: 1rem; /* 16px */
+}
+
+@media (min-width: 120rem) {
+    #intro p {
+        font-size: 1.25rem;
+    }
+}
+
+:is(h1, h2, h3) {
+    font-family: var(--molle);
+    font-weight: 400;
+    font-style: italic;
+}
+
+:is(h4, p, q, small, nav, button, form) {
+    font-family: var(--montserrat);
+    font-optical-sizing: auto;
+    font-variation-settings: 'wght' 400;
+}
+
+/* --------- End of typography - general/multiple sections --------- */
+
+/* Skip link */
+
+#skip {
+    font-family: var(--montserrat);
+    background-color: var(--teal);
+    color: var(--black);
+    position: absolute;
+    left: 50%;
+    padding: .875rem;
+    transform: translate(-50%, -100%);
+    transition: transform 0.4s;
+}
+  
+#skip a {
+    text-decoration: underline;
+}
+  
+#skip:focus-within {
+    transform: translate(-50%, 0%);
+}
+
+/* Screenreader only */
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
